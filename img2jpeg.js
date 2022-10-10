@@ -1,8 +1,9 @@
 import { ImagePool } from '@squoosh/lib';
 import { cpus } from 'os';
+import fs from 'fs/promises';
+
 const imagePool = new ImagePool(cpus().length);
 
-import fs from 'fs/promises';
 const file = await fs.readFile('./landscape.png');
 const image = imagePool.ingestImage(file);
 
